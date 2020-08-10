@@ -1,10 +1,19 @@
 const webpackPreprocessor = require('@cypress/webpack-preprocessor')
+const findWebpack = require('find-webpack')
 
 module.exports = (on) => {
+  const cleanOptions = {
+    reactScripts: true,
+    coverage: true,
+  }
+
+  const webpackConfig = findWebpack.cleanForCypress(
+    cleanOptions,
+    require('../../config/webpack.config')('development')
+  );
+
   const options = {
-    // send in the options from your webpack.config.js, so it works the same
-    // as your app's code
-    webpackOptions: require('../../config/webpack.config')('development'),
+    webpackOptions: webpackConfig,
     watchOptions: {},
   }
 

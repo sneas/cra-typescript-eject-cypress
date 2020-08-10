@@ -74,7 +74,8 @@
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^5.4.1",
-    "cypress": "^4.10.0"
+    "cypress": "^4.10.0",
+    "find-webpack": "^2.0.0"
   },
   "eslintConfig": {
     "extends": "react-app"
